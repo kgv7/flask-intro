@@ -46,6 +46,19 @@ def say_hello():
             <option value="wowza">Wowza</option>
           </select>
           <br>
+
+          <label>What diss would you like?</label>
+          <select name="diss">
+            <option value="terrible">Terrible</option>
+            <option value="smelly">Smelly</option>
+            <option value="loser">Loser</option>
+            <option value="poopy">Poopy</option>
+          </select>
+          <br>
+          <label>Would you like a diss or compliment?</label>
+          <input type="radio" value="diss" name="diss-option"> Diss
+          <input type="radio" value="compliment" name="diss-option"> Compliment
+          <br>
           <input type="submit" value="Submit">
 
         </form>
@@ -61,7 +74,7 @@ def greet_person():
 
     player = request.form.get("person")
 
-    compliment = request.form.get("complimentq")
+    compliment = request.form.get("compliment")
 
     return """
     <!doctype html>
