@@ -71,22 +71,36 @@ def say_hello():
 @app.route('/greet', methods=["POST"])
 def greet_person():
     """Get user by name."""
-
+    diss_option = request.form.get("diss-option")
     player = request.form.get("person")
+    diss = request.form.get("diss")
+    comp = request.form.get("compliment")
 
-    compliment = request.form.get("compliment")
+    if diss_option == "diss":
+      return """
+        <!doctype html>
+        <html>
+          <head>
+            <title>A Diss</title>
+          </head>
+          <body>
+            Hi, {}! I think you're {}!
+          </body>
+        </html>
+        """.format(player, diss)
 
-    return """
-    <!doctype html>
-    <html>
-      <head>
-        <title>A Compliment</title>
-      </head>
-      <body>
-        Hi, {}! I think you're {}!
-      </body>
-    </html>
-    """.format(player, compliment)
+    if diss_option == "compliment":
+      return """
+        <!doctype html>
+        <html>
+          <head>
+            <title>A Compliment</title>
+          </head>
+          <body>
+            Hi, {}! I think you're {}!
+          </body>
+        </html>
+        """.format(player, comp)
 
 
 if __name__ == '__main__':
